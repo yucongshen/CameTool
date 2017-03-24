@@ -1,4 +1,4 @@
-package com.client;
+package com.assignment2;
 
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
@@ -14,7 +14,7 @@ import org.apache.mina.filter.codec.textline.LineDelimiter;
 import org.apache.mina.filter.codec.textline.TextLineCodecFactory;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
 
-public class MyClient2 {
+public class MyClient {
 	private static final String host="127.0.0.1";
 	private static final int port=7080;
 	public static void main(String[] args) {
@@ -30,7 +30,7 @@ public class MyClient2 {
 		);
 		connector.getSessionConfig().setReadBufferSize(1024);
 		connector.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 10);
-		connector.setHandler(new MyClientHandler2());
+		connector.setHandler(new MyClientHandler());
 		ConnectFuture connneFutrure=connector.connect(new InetSocketAddress(host,port));
 		connneFutrure.awaitUninterruptibly();
 		session=connneFutrure.getSession();
@@ -43,23 +43,21 @@ public class MyClient2 {
 		@SuppressWarnings("resource")
 		Scanner input=new Scanner(System.in); 
 		while(!session.isClosing()){
-			System.out.print("请输入一个整数：");
+			System.out.print("请输入命令：(createMap+6+6 or changeMap+2+2+6)");
 			System.out.println();
-			int number=input.nextInt();
-			session.write(number+"");
+			String command=input.next();
+			session.write(command);
 		}
 	}
 }
-class MyClientHandler2 extends IoHandlerAdapter {
+class MyClientHandler extends IoHandlerAdapter {
 
 	@Override
 	public void messageReceived(IoSession session, Object message)
 			throws Exception {
-		String msg=(String) message;
-		System.out.println("服务器说："+msg);
-		if(msg.equals("猜对了!")){
-			session.closeNow();
-		}
+		
+		String gameMap=(String) message;
+		System.out.println(gameMap);
 	}
 
 	@Override

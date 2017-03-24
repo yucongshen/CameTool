@@ -1,4 +1,4 @@
-package com.client;
+package com.assignment1.client;
 
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
@@ -14,7 +14,7 @@ import org.apache.mina.filter.codec.textline.LineDelimiter;
 import org.apache.mina.filter.codec.textline.TextLineCodecFactory;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
 
-public class MyClient1 {
+public class MyClient2 {
 	private static final String host="127.0.0.1";
 	private static final int port=7080;
 	public static void main(String[] args) {
@@ -30,7 +30,7 @@ public class MyClient1 {
 		);
 		connector.getSessionConfig().setReadBufferSize(1024);
 		connector.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 10);
-		connector.setHandler(new MyClientHandler());
+		connector.setHandler(new MyClientHandler2());
 		ConnectFuture connneFutrure=connector.connect(new InetSocketAddress(host,port));
 		connneFutrure.awaitUninterruptibly();
 		session=connneFutrure.getSession();
@@ -50,7 +50,7 @@ public class MyClient1 {
 		}
 	}
 }
-class MyClientHandler extends IoHandlerAdapter {
+class MyClientHandler2 extends IoHandlerAdapter {
 
 	@Override
 	public void messageReceived(IoSession session, Object message)

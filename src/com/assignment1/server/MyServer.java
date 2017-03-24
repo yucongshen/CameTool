@@ -1,4 +1,4 @@
-package com.server;
+package com.assignment1.server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
