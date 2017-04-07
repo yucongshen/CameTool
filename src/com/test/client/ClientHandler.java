@@ -21,11 +21,11 @@ public class ClientHandler extends IoHandlerAdapter {
     }  
   
     public void sessionOpened(IoSession session) throws Exception {  
-        session.write("客户端与服务器的会话打开了……");  
+        //session.write("客户端与服务器的会话打开了……");  
         @SuppressWarnings("resource")
 		Scanner input=new Scanner(System.in); 
 		//while(!session.isClosing()){
-			System.out.print("请输入命令：");
+			System.out.print("请输入命令：(createMap+6+6 or changeMap+2+2+6)");
 			System.out.println();
 			String command=input.next();
 			session.write(command);
@@ -34,8 +34,7 @@ public class ClientHandler extends IoHandlerAdapter {
         text.setName("梅竹寒香");  
         text.setQQNum("972341215");  
         session.write(text);  */
-    }  
-  
+    }
     public void sessionClosed(IoSession session) {  
     }  
   
@@ -47,6 +46,6 @@ public class ClientHandler extends IoHandlerAdapter {
     }  
   
     public void messageSent(IoSession session, Object message) throws Exception {  
-        System.out.println("客户端已经向服务器发送了："+(String)message);  
+        //System.out.println("客户端已经向服务器发送了："+(String)message);  
     }  
 }
