@@ -1,0 +1,9 @@
+{"dateTime":"2017-04-15 10:04:04","userCount":1}
+{"dateTime":"2017-04-15 10:04:09","userCount":2}
+{"dateTime":"2017-04-15 10:09:06","userCount":1}
+{"dateTime":"2017-04-15 10:12:12","userCount":2}
+{"dateTime":"2017-04-15 10:14:50","userCount":1}
+{"dateTime":"2017-04-15 10:15:14","userCount":2}
+{"dateTime":"2017-04-15 10:15:21","userCount":3}
+{"dateTime":"2017-04-15 10:15:43","userCount":2}
+{"dateTime":"2017-04-15 10:16:03","userCount":1}
